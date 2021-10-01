@@ -31,7 +31,10 @@ def domainscan(domain,subdomain):
 		except requests.ConnectionError:
 			pass
 	banner4 = Figlet(font='digital')
-	print(banner4.renderText('Thankyou for using the tool :)'))
+	print(banner4.renderText('''
+	Thankyou for using the tool (:
+	Made by Mekhla 
+	'''))
 	
 if __name__ == '__main__':		
 	dom_name= input("Enter domain name for scanning: ")
