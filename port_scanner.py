@@ -1,5 +1,5 @@
 #!/bin/python3
-
+import subprocess
 import sys
 import socket
 from datetime import datetime
@@ -17,6 +17,10 @@ print("Time started: "+str(datetime.now()))
 print("-"*50)
 
 try:
+	#yield --> open process --> run command
+	yield subprocess.Popen[("ping", f"{target}", "-n", "1"], stdout=subprocess.PIPE) \
+			.stdout.read()                                                          \
+			.decode()
 	for port in range(1,8000):
 		s= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		socket.setdefaulttimeout(1)
